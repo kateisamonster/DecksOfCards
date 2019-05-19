@@ -12,9 +12,7 @@ class Main
       System.out.println(card3);
 
       if (card1.equals(card3))
-      {
          System.out.println("equals function works");
-      }
 
       card1.set('z', Card.Suit.DIAMONDS);
       card2.set('K', Card.Suit.SPADES);

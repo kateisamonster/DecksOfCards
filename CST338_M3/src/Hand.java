@@ -30,7 +30,7 @@ class Hand {
    public  boolean takeCard(Card card)
    {
        Card tempCard = new Card();
-       tempCard = card;
+       tempCard = card; //TODO we need to copy the object, per assignment specs; this just copies the reference to the original card -KA
        boolean wasTaken = false;
        if (numCards <= MAX_CARDS-1)
        {
@@ -62,9 +62,8 @@ class Hand {
        String tempCards = "";
        
        for(int i = 0; i < numCards; i++)
-       {
            tempCards += myCards[i].toString() + ", ";
-       }
+       
        return tempCards;
    }
    
@@ -87,16 +86,11 @@ class Hand {
        Card tempCard = new Card();
        
        // Check to see if k is bad.  If it is, return errorFlag = True
-       if(k >= this.numCards || k < 0)
-       {
-           // Create a bad card that will have an errorFlag.
-           tempCard.set('z',Card.Suit.SPADES);
-       }
-       //Else Return card
-       else
-       {
+       if(k >= this.numCards || k < 0) // Create a bad card that will have an errorFlag
+           tempCard.set('z',Card.Suit.SPADES); 
+       else //Else Return card
            tempCard = this.myCards[k];
-       }
+       
        return tempCard;
    }
 }
