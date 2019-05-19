@@ -9,21 +9,9 @@ class Deck
    private int topCard;
    private int cardsInDeck;
    
-   Deck()
-   {
-      if (masterPack[0] != new Card('2', Card.Suit.SPADES))
-      {
-         allocateMasterPack();
-      }
-      cardsInDeck = 52;
-      
-      //TODO  populate cards array with shuffled cards
-      
-   }
-   
    Deck(int numPacks)
    {
-      if (masterPack[0] != new Card('2', Card.Suit.SPADES))
+      if (masterPack[0].equals(new Card('2', Card.Suit.SPADES)))
       {
          allocateMasterPack();
       }
@@ -33,9 +21,15 @@ class Deck
       
    }
    
+   Deck()
+   {
+      this(1);
+   }
+   
    private void allocateMasterPack()
    {
-      char[] values = {'2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'};
+      char[] values = 
+         {'2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'};
       int arrayIndex = 0;
       for(char v:values)
       {

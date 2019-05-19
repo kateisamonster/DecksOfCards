@@ -1,7 +1,7 @@
 class Hand {
    private Card[] myCards;
    private int numCards;
-   private static final int MAX_CARDS = 52; 
+   public static final int MAX_CARDS = 52; 
    
    // Default Constructor.
    Hand()
@@ -29,8 +29,7 @@ class Hand {
    //adds card to the myCard array
    public  boolean takeCard(Card card)
    {
-       Card tempCard = new Card();
-       tempCard = card; //TODO we need to copy the object, per assignment specs; this just copies the reference to the original card -KA
+       Card tempCard = new Card(card);
        boolean wasTaken = false;
        if (numCards <= MAX_CARDS-1)
        {
