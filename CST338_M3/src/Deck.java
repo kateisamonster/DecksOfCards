@@ -26,7 +26,7 @@ class Deck
    */
    Deck(int numPacks)
    {
-      if (masterPack[0]!=null && masterPack[0].equals(new Card('2', Card.Suit.SPADES)))
+      if (masterPack[0].equals(new Card('2', Card.Suit.SPADES)))
          allocateMasterPack();
          
       topCard = (CARDS_IN_PACK * numPacks)-1;

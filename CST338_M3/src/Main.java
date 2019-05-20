@@ -13,7 +13,7 @@ class Main
    {
       //Card class testing
       Card card1 = new Card();
-      Card card2 = new Card('d', Card.Suit.CLUBS); // Error flag on, no 'd' value
+      Card card2 = new Card('d', Card.Suit.CLUBS);	// Error flag on, no 'd' value
       Card card3 = new Card(card1);
 
       System.out.println(card1);
@@ -23,12 +23,12 @@ class Main
       if (card1.equals(card3))
          System.out.println("equals function works");
 
-      card1.set('z', Card.Suit.DIAMONDS); // Error flag for 'z' is invalid
+      card1.set('z', Card.Suit.DIAMONDS);	// Error flag for 'z' is invalid
       card2.set('K', Card.Suit.SPADES);
 
       System.out.println(card1);
       System.out.println(card2);
-      System.out.println(card3); // "A of SPADES" for card3 = new Card(card1) before
+      System.out.println(card3);	// "A of SPADES" for card3 = new Card(card1) before
 
       System.out.println(card2.getValue());
       System.out.println(card2.getSuit());
