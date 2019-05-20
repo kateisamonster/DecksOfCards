@@ -1,13 +1,23 @@
+/**
+ * Hand class to keep track of a player's hand of cards
+ * interacts with Deck and Card classes
+ * 
+ * @author Jasper Klop
+ * @author Kate Adler
+ * @author Michael Lee
+ * @author Michael Garber
+ */
+
 class Hand {
    private Card[] myCards;
    private int numCards;
-   public static final int MAX_CARDS = 52; 
+   private static final int MAX_CARDS = 52;  // Instruction mentions public int value
    
    // Default Constructor.
    Hand()
    {
-       this.myCards = new Card[MAX_CARDS];
-       numCards = 0;
+      this.myCards = new Card[MAX_CARDS];
+      numCards = 0;
    }
    
    //Clears the current hand
@@ -17,6 +27,7 @@ class Hand {
        will start to overwrite what is there.  You dont actually have to 
        empty the array.
        //Iterate through myCards and make each item null
+        
        int i;
        for (i = 0 ; i <= numCards-1 ; i++)
        {
@@ -30,6 +41,7 @@ class Hand {
    public  boolean takeCard(Card card)
    {
        Card tempCard = new Card(card);
+       //tempCard = card;
        boolean wasTaken = false;
        if (numCards <= MAX_CARDS-1)
        {
@@ -61,8 +73,9 @@ class Hand {
        String tempCards = "";
        
        for(int i = 0; i < numCards; i++)
+       {
            tempCards += myCards[i].toString() + ", ";
-       
+       }
        return tempCards;
    }
    
@@ -85,11 +98,16 @@ class Hand {
        Card tempCard = new Card();
        
        // Check to see if k is bad.  If it is, return errorFlag = True
-       if(k >= this.numCards || k < 0) // Create a bad card that will have an errorFlag
-           tempCard.set('z',Card.Suit.SPADES); 
-       else //Else Return card
+       if(k >= this.numCards || k < 0)
+       {
+           // Create a bad card that will have an errorFlag.
+           tempCard.set('z',Card.Suit.SPADES);
+       }
+       //Else Return card
+       else
+       {
            tempCard = this.myCards[k];
-       
+       }
        return tempCard;
    }
 }

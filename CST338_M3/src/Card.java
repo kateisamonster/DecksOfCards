@@ -1,3 +1,13 @@
+/**
+ * Card class to contain the data for one standard card in a card game
+ * interacts with Deck and Hand classes
+ * 
+ * @author Jasper Klop
+ * @author Kate Adler
+ * @author Michael Lee
+ * @author Michael Garber
+ */
+
 class Card
 {
    public enum Suit {SPADES, HEARTS, CLUBS, DIAMONDS}; 
@@ -24,7 +34,6 @@ class Card
       {
           this.errorFlag = true;
       }
-      
    }
    
    Card(Card card)
@@ -87,13 +96,6 @@ class Card
    
    private boolean isValid(char value, Suit suit)
    {
-      boolean isValid = false;
-      
-      if ("123456789TJQKA".contains(Character.toString(value)))
-         {
-            isValid = true;
-         }
-      
-      return isValid;
+      return "123456789TJQKA".contains(Character.toString(value));
    }
 }
