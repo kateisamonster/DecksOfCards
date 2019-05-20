@@ -2,7 +2,7 @@
  * Deck class to keep track of the whole deck of cards for a card game
  * interacts with Hand and Card classes
  * 
- * @author Jasper Klop
+ * @author Jasper Kolp
  * @author Kate Adler
  * @author Michael Lee
  * @author Michael Garber
@@ -10,7 +10,7 @@
 
 import java.util.Random;
 
-public class Deck
+class Deck
 {
    public static final int CARDS_IN_PACK = 52;
    public final int MAX_CARDS = CARDS_IN_PACK*6; //essentially a max of 6 card packs
@@ -26,9 +26,7 @@ public class Deck
    */
    Deck(int numPacks)
    {
-      // NOTE the following works because all Java arrays are guaranteed to initialize to null -ka
-      // the old way would give a null pointer exception when trying to check the value of masterPack[0]
-      if (masterPack[0] == null) 
+      if (masterPack[0].equals(new Card('2', Card.Suit.SPADES)))
          allocateMasterPack();
          
       topCard = (CARDS_IN_PACK * numPacks)-1;
@@ -45,7 +43,7 @@ public class Deck
       this(1);
    }
    
-   /** Creates the master pack where all the card values will come from */
+   /** Populates the master pack where all the card values will come from */
    private void allocateMasterPack()
    {
       char[] values = {'2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'};
@@ -118,8 +116,7 @@ public class Deck
 
    /** peeks at a card in the deck without removing it
     * @param k index of the desired card to inspect
-    * @return  reference to the card at index k 
-    *          (or invalid card if no card at k)
+    * @return  reference to the card at index k
     */
    public Card inspectCard(int k)
    {
@@ -146,3 +143,4 @@ public class Deck
       }
    }
 }
+
