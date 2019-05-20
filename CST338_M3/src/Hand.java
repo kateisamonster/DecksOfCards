@@ -2,7 +2,7 @@
  * Hand class to keep track of a player's hand of cards
  * interacts with Deck and Card classes
  * 
- * @author Jasper Klop
+ * @author Jasper Kolp
  * @author Kate Adler
  * @author Michael Lee
  * @author Michael Garber
@@ -11,7 +11,7 @@
 class Hand {
    private Card[] myCards;
    private int numCards;
-   private static final int MAX_CARDS = 52;  // Instruction mentions public int value
+   private static final int MAX_CARDS = 52; 	// Instruction mentions public int value
    
    // Default Constructor.
    Hand()

@@ -2,7 +2,7 @@
  * Card class to contain the data for one standard card in a card game
  * interacts with Deck and Hand classes
  * 
- * @author Jasper Klop
+ * @author Jasper Kolp
  * @author Kate Adler
  * @author Michael Lee
  * @author Michael Garber
