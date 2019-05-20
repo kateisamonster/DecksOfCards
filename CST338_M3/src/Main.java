@@ -7,7 +7,7 @@
  * @author Michael Garber
  */
 
-class Main
+public class Main
 {
    public static void main(String[] args)
    {
@@ -94,7 +94,7 @@ class Main
 
       /*Declare a deck containing two packs of cards. Do not shuffle.  Deal all the cards in a loop until the deck is empty (dealt directly to the display/screen, not to any Hand objects just yet).  Display each card as it comes off the deck.  Next, reset the deck by initializing it again (to the same two packs).  Shuffle the deck this time, and re-deal to the screen in a loop again. Notice that the cards are now coming off in a random order.
 
-        Repeat this double deal, unshuffled, then shuffled, but this time using a single pack deck.*/
+        //TODO Repeat this double deal, unshuffled, then shuffled, but this time using a single pack deck.*/
       
       // Deck Testing
       Deck deck = new Deck(2);
@@ -114,7 +114,7 @@ class Main
       }
 
       /* planning part 4
-        ask user to enter number of players  (1-10)
+        //TODO ask user to enter number of players  (1-10)
 
         
 
@@ -128,4 +128,3 @@ class Main
 
    }
 }
-
