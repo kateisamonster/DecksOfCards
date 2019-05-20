@@ -10,7 +10,7 @@
 
 import java.util.Random;
 
-class Deck
+public class Deck
 {
    public static final int CARDS_IN_PACK = 52;
    public final int MAX_CARDS = CARDS_IN_PACK*6; //essentially a max of 6 card packs
@@ -26,7 +26,9 @@ class Deck
    */
    Deck(int numPacks)
    {
-      if (masterPack[0].equals(new Card('2', Card.Suit.SPADES)))
+      // NOTE the following works because all Java arrays are guaranteed to initialize to null -ka
+      // the old way would give a null pointer exception when trying to check the value of masterPack[0]
+      if (masterPack[0] == null) 
          allocateMasterPack();
          
       topCard = (CARDS_IN_PACK * numPacks)-1;
@@ -43,6 +45,7 @@ class Deck
       this(1);
    }
    
+
    /** Populates the master pack where all the card values will come from */
    private void allocateMasterPack()
    {
@@ -116,7 +119,8 @@ class Deck
 
    /** peeks at a card in the deck without removing it
     * @param k index of the desired card to inspect
-    * @return  reference to the card at index k
+    * @return  reference to the card at index k 
+    *          (or invalid card if no card at k)
     */
    public Card inspectCard(int k)
    {
