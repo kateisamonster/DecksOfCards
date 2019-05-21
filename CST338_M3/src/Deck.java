@@ -10,7 +10,7 @@
 
 import java.util.Random;
 
-public class Deck
+class Deck
 {
    public static final int CARDS_IN_PACK = 52;
    public final int MAX_CARDS = CARDS_IN_PACK*6; //essentially a max of 6 card packs
@@ -20,23 +20,19 @@ public class Deck
    
    private Card[] cards = new Card[MAX_CARDS];
    private int topCard;
-   
+  
    /**Constructor with specified number of packs
     * @param numpacks   number of card packs in deck
    */
    Deck(int numPacks)
    {
-      // NOTE the following works because all Java arrays are guaranteed to initialize to null -ka
-      // the old way would give a null pointer exception when trying to check the value of masterPack[0]
-      if (masterPack[0] == null) 
+      if (masterPack[0]==null)
+      {
          allocateMasterPack();
-         
-      topCard = (CARDS_IN_PACK * numPacks)-1;
-      
-      for (int i = 0; i < numPacks; i++)
-         for (int j = 0; j < CARDS_IN_PACK; i++)
-            cards[(i*CARDS_IN_PACK)+j] = new Card(masterPack[j]);
-      
+      }
+
+      init(numPacks);
+      topCard = (CARDS_IN_PACK * numPacks) - 1;
    }
 
    /** Default Constructor (calls the constructor with numPacks=1 parameter) */
@@ -45,8 +41,7 @@ public class Deck
       this(1);
    }
    
-
-   /** Populates the master pack where all the card values will come from */
+   /** Creates the master pack where all the card values will come from */
    private void allocateMasterPack()
    {
       char[] values = {'2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'};
@@ -90,11 +85,14 @@ public class Deck
     */  
    public void init(int numPacks)
    {
-      this.topCard = ((CARDS_IN_PACK * numPacks)-1);
+      this.topCard = ((CARDS_IN_PACK * numPacks) - 1);
+
       // Number of packs
       for (int i = 0; i < numPacks; i++)
          for (int j = 0; j < CARDS_IN_PACK; j++)  
             this.cards[(i*CARDS_IN_PACK)+j] = new Card(masterPack[j]);
+      		
+      		//System.out.println( (i * CARDS_IN_PACK) + j);
    }
    
    /** 
@@ -119,8 +117,7 @@ public class Deck
 
    /** peeks at a card in the deck without removing it
     * @param k index of the desired card to inspect
-    * @return  reference to the card at index k 
-    *          (or invalid card if no card at k)
+    * @return  reference to the card at index k
     */
    public Card inspectCard(int k)
    {
@@ -147,4 +144,5 @@ public class Deck
       }
    }
 }
+
 
